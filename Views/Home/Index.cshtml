@@ -1,0 +1,75 @@
+﻿@model st101030534_part1_CLDV7111.Models.MyViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhumaloCraft Emporium</title>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <style>
+        .artisan {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+            .artisan img {
+                width: 100px;
+                height: auto;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+
+<body class="index">
+    @{
+        ViewBag.Title = "Home Page";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+
+    <h1>Artisan Products</h1>
+
+    <h2>All Products</h2>
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>
+                <strong>@product.Name</strong><br />
+                Description: @product.Description<br />
+                Price: @product.Price<br />
+                Artisan: @product.Artisan.Name
+            </li>
+        }
+    </ul>
+
+    <h2>Artisan Products</h2>
+    <ul>
+        @foreach (var artisanProducts in Model.ArtisanProducts)
+        {
+            var artisan = artisanProducts.Key;
+            <li>
+                <div class="artisan">
+                    <img src="@Url.Content("~/Uploads/" + artisan.ImagePath)" alt="@artisan.Name" />
+                    <div>
+                        <strong>@artisan.Name</strong><br />
+                        Products:
+                        <ul>
+                            @foreach (var product in artisanProducts.Value)
+                            {
+                                <li>@product.Name</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+
+    <script src="~/Scripts/script.js"></script>
+</body>
+
+</html>

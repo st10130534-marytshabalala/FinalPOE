@@ -1,0 +1,23 @@
+﻿/* Index page background */
+body.index {
+    background-image: url('../Uploads/BACKGROUND.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Contact Us page background */
+body.contact {
+    background-image: url('../Uploads/BACKGROUND.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* About Us page background */
+body.about {
+    background-image: url('../Uploads/BACKGROUND.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
